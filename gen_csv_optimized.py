@@ -350,7 +350,7 @@ async def get_current_price(symbol, index, api_keys):
 
 
 def write_csv(data):
-    csv_file_path = "updated_assets.csv"
+    csv_file_path = "symbols_files/updated_assets.csv"
 
     # Création du DataFrame à partir des données nouvelles
     columns = [
@@ -491,7 +491,7 @@ async def main():
     symbols = await checked_data(symbols, api_keys)
 
     #Evite de récupérer les données déjà présentes dans le fichier csv
-    csv_file_path = 'updated_assets.csv'
+    csv_file_path = 'symbols_files/updated_assets.csv'
     df = pd.read_csv(csv_file_path)
     symbol_list = df['Symbol'].tolist()
     symbols = [symbol for symbol in symbols if symbol not in symbol_list]
